@@ -1,0 +1,19 @@
+{% extends  "base.html" %}
+{% block content %}
+
+
+    <div class="container">
+        {% load static %}
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        <form action="{{ location }}" class="blueForm" method="post" enctype="multipart/form-data">
+            {% crispy form %}
+        </form>
+
+
+        <div class="progress" hidden id="progressbar" content="{{ time|default_if_none:2 }}">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:0%" id="progress"></div>
+        </div>
+    </div>
+
+{% endblock %}
